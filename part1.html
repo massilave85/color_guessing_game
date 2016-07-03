@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Welcome to my color guess game! :)</title>
+        <meta name="author" content="Massimo Lavelli">
+    </head>
+    <body onload="do_game()">
+        <script>
+            var color = ["orange", "blue", "white", "green", "magenta", "cyan", "red", "gold", "yellow", "indigo", "silver", "sienna", "darkorange", "navajowhite", "lime"];
+            color.sort();
+            var random_index = Math.floor((Math.random() * color.length));
+            var random_color = color[random_index];
+            var guessed_color = "";
+
+            function do_game(){
+                alert("The random color is " + random_color);
+                
+                while (guessed_color != random_color) {
+                    guessed_color = prompt("I am thinking of one of these colors:\n\n" + color.join(", ") + "\n\nWhat color am I thinking of?");
+                };
+                alert("Congratulations! You have guessed the color!");
+            }
+        </script>
+    </body>
+</html>

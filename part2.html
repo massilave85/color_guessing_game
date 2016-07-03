@@ -4,24 +4,24 @@
         <title>Welcome to my color guess game! :)</title>
         <meta name="author" content="Massimo Lavelli">
     </head>
-    <body onload="guess_game()">
+    <body onload="do_game()">
         <script>
             var color = ["orange", "blue", "white", "green", "magenta", "cyan", "red", "gold", "yellow", "indigo", "silver", "sienna", "darkorange", "navajowhite", "lime"];
             color.sort();
             var random_index = Math.floor((Math.random() * color.length));
             var random_color = color[random_index];
             var guesses = 0;
-            var index = 0;
             var guessed_color;
             var finished = false;
 
-            function guess_game(){
+            function do_game(){
+                alert("The random color is " + random_color);
+
                 while (!finished) {
                     guessed_color = prompt("I am thinking of one of these colors:\n\n" + color.join(", ") + "\n\nWhat color am I thinking of?");
                     guesses++;
                     finished = check_guess();
-                };
-                
+                };        
                 document.getElementsByTagName("body")[0].style.background = random_color;
                 alert("Congratulations! You have guessed the color!\n\nIt took you " + guesses + " guesses to finish the game!\n\nYou can see the colour in the background.");
             }
